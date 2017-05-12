@@ -1,3 +1,48 @@
-<h1>
-  {{title}}
-</h1>
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+          data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false"
+          aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">Bootstrap4 with Angular4</a>
+  
+  <div class="collapse navbar-collapse" id="navbarExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" [ngClass]="{'active': isActive('accordionContent')}">
+        <a class="nav-link" href="#" (click)="scrollToComponent('accordionContent')">Accordion</a>
+      </li>
+      <li class="nav-item" [ngClass]="{'active': isActive('alertContent')}">
+        <a class="nav-link" href="#" (click)="scrollToComponent('alertContent')">Alert</a>
+      </li>
+      <li class="nav-item" [ngClass]="{'active': isActive('collapseContent')}">
+        <a class="nav-link" href="#" (click)="scrollToComponent('collapseContent')">Collapse</a>
+      </li>
+      <li class="nav-item" [ngClass]="{'active': isActive('popoverContent')}">
+        <a class="nav-link" href="#" (click)="scrollToComponent('popoverContent')">Popover</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="http://example.com" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">DateTimePicker</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" href="#">Datepicker</a>
+          <a class="dropdown-item" href="#">Timepicker</a>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<div class="components">
+  <app-accordion [state]="elements['accordionContent']"
+                 (scrolls)="onScrolled($event, 'accordionContent')"></app-accordion>
+  <app-alert [state]="elements['alertContent']"
+             (scrolls)="onScrolled($event, 'alertContent')"></app-alert>
+  <app-collapse [state]="elements['collapseContent']"
+                (scrolls)="onScrolled($event, 'collapseContent')"></app-collapse>
+  <app-popover [state]="elements['popoverContent']"
+               (scrolls)="onScrolled($event, 'popoverContent')"></app-popover>
+</div>

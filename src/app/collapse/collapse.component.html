@@ -1,0 +1,32 @@
+<div class="content" id="collapseContent">
+  <h2 class="title">NgbCollapse</h2>
+  <span>The NgbCollapse directive provides a simple way to hide and show an element with animations.</span>
+  <table class="table table-hover">
+    <tr>
+      <td class="label-cell">Selector</td>
+      <td class="content-cell">[ngbCollapse]</td>
+    </tr>
+    <tr>
+      <td class="label-cell">Exported as</td>
+      <td class="content-cell">ngbCollapse</td>
+    </tr>
+  </table>
+  <div class="card">
+    <div class="card-header"><h3>Demo</h3></div>
+    <div class="card-block">
+      <p>
+        <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"
+                [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+          Toggle
+        </button>
+      </p>
+      <div id="collapseExample" [ngbCollapse]="isCollapsed">
+        <div class="card">
+          <div class="card-block">
+            You can collapse this card by clicking Toggle
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
